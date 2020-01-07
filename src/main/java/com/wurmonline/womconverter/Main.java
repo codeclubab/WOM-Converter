@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class Main extends Application {
     
     public static void main(String[] args) {
-        if (args.length == 0) {
+        if (args.length == 0 || (args.length == 1 && args[0].equalsIgnoreCase("-h"))) {
             System.out.println("Usage:");
             System.out.println("java -jar WOM_Converter.jar [-generatetangents] [-recursive] [-indir input_directory] [-outdir output_directory] input_files_regex");
             System.out.println("Options:");
@@ -27,6 +27,8 @@ public class Main extends Application {
             System.out.println("Will take all dae files in current directory, convert them to WOM generating tangent and binormal values when needed and export to current directory");
             System.out.println("java -jar WOM_Converter.jar -devfilechooser");
             System.out.println("Will skip normal program execution and ignore other options, opening file manager to quickly test exporting of single model");
+
+            launch(args);
         }
         
         boolean generateTangents = false;
